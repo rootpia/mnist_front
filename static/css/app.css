@@ -1,0 +1,79 @@
+﻿.canvas {
+    border: solid 1px black;
+    width: 280px;
+    height: 280px;
+}
+
+.clear-button {
+    width: 100px;
+    height: 30px;
+    background-color: rgb(253, 16, 16);
+    color: white;
+    margin: 5px 0;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
+.clear-button:active{
+    border:1px solid #334c66;
+    background-color: rgb(131, 4, 25);
+    color:#e0ebf5;
+}
+
+.send-button {
+    width: 100px;
+    height: 30px;
+    background-color: rgb(3, 185, 3);
+    color: white;
+    margin: 5px 0;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
+.send-button:active{
+    border:1px solid #334c66;
+    background-color: rgb(4, 143, 22);
+    color:#e0ebf5;
+}
+
+.answer {
+    color: red;
+    font-size: 20px;
+}
+
+ul.cp_list {
+	padding: 0.5em;
+	list-style-type: none;
+}
+ul.cp_list li {
+	position: relative;
+	padding: 0.5em 1em 0.5em 2.3em;
+	margin-bottom:5px;
+	border-bottom: 1px solid rgba(25,118,210,1);
+}
+ul.cp_list li:after,
+ul.cp_list li:before{
+	content:'';
+	position: absolute;
+	border-radius: 50%;
+}
+ul.cp_list li:before {
+	top: 50%;
+	left: 0.2em;
+	width: 17px;
+	height: 17px;
+	background: rgba(25,118,210, 1);
+	transform: translateY(-50%);
+}
+ul.cp_list li:after {
+	top: 1.1em;
+	left: 0.7em;
+	width: 14px;
+	height: 14px;
+	background: rgba(25,118,210, 0.5);
+}
+
