@@ -3,10 +3,10 @@ display by a browser
 
 ## build
 ```shell
-$ docker build -t mnist_front .
+$ docker build -t front .
 ```
 
 ## run
 ```shell
-$ docker run -d mnist_front
+$ docker run -d front
 ```
