@@ -87,7 +87,7 @@ function sendImage() {
         }
     })
     .done( (data) => {
-        $('#answer').html('はんだんけっか = <span class="answer">'+data['ans']+'</span>')
+        $('#answer').html('はんていけっか = <span class="answer">'+data['ans']+'</span>')
         $('ul#anslist').append('<li>0: '+data['c0']+'</li>');
         $('ul#anslist').append('<li>1: '+data['c1']+'</li>');
         $('ul#anslist').append('<li>2: '+data['c2']+'</li>');
