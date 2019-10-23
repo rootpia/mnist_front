@@ -5,15 +5,16 @@
 }
 
 .clear-button {
-    width: 100px;
-    height: 30px;
+    width: 140px;
+    height: 40px;
     background-color: rgb(253, 16, 16);
     color: white;
     margin: 5px 0;
-    border-radius: 15px;
+    border-radius: 20px;
     border: none;
     outline: none;
     font-weight: bold;
+    font-size: 18px
 }
 
 .clear-button:active{
@@ -23,15 +24,16 @@
 }
 
 .send-button {
-    width: 100px;
-    height: 30px;
+    width: 140px;
+    height: 40px;
     background-color: rgb(3, 185, 3);
     color: white;
     margin: 5px 0;
-    border-radius: 15px;
+    border-radius: 20px;
     border: none;
     outline: none;
     font-weight: bold;
+    font-size: 18px
 }
 
 .send-button:active{
@@ -44,6 +46,29 @@
     color: red;
     font-size: 20px;
 }
+
+.custom-radio input {
+  display: none;
+}
+.custom-radio label {
+  color: #ddd;
+  border: 2px solid #ddd;
+  text-align: center;
+  display: inline-block;
+  padding: 4px 0px;
+  width: 130px;
+}
+.custom-radio label:hover {
+    color: #aaa;
+    border: 2px solid #aaa;
+    cursor: pointer;
+}
+.custom-radio input[type="radio"]:checked + label {
+    color: #5555ff;
+    border: 2px solid #5555ff;
+    background-color: #eaeaff;
+}
+
 
 ul.cp_list {
 	padding: 0.5em;
@@ -76,4 +101,3 @@ ul.cp_list li:after {
 	height: 14px;
 	background: rgba(25,118,210, 0.5);
 }
-

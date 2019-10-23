@@ -2,6 +2,8 @@
 var ct;
 var ox = 0, oy = 0, x = 0, y = 0;
 var mf = false;
+var keyword = ""
+
 function mam_draw_init() {
     can = document.getElementById("can");
     can.addEventListener("touchstart", onDown, false);
@@ -64,41 +66,76 @@ function drawLine() {
 function clearCan() {
     ct.fillStyle = "rgb(255,255,255)";
     ct.fillRect(0, 0, can.getBoundingClientRect().width, can.getBoundingClientRect().height);
-    $('#answer').html("")
-    $('ul#anslist > li').each(function(){
-        $(this).remove();
-    });
+//     $('#answer').html("")
+//     $('ul#anslist > li').each(function(){
+//         $(this).remove();
+//     });
+    const group = document.getElementById("radiogroup");
+    for(var i=0; i<9; i++){
+        const idx = 3 * i;
+        group.children[idx].checked = false;
+    }
+    group.setAttribute("style", "pointer-events: none");
 }
 
 // 画像のサーバーへのPOST
 function sendImage() {
-    $('#answer').html("")
-    $('ul#anslist > li').each(function(){
-        $(this).remove();
-    });
+//     $('#answer').html("")
+//     $('ul#anslist > li').each(function(){
+//         $(this).remove();
+//     });
 
     var img = document.getElementById("can").toDataURL('image/png');
     img = img.replace('image/png', 'image/octet-stream');
     $.ajax({
         type: "POST",
-        url: "/api",
+        url: "/api/answer",
         data: {
             "img": img
         }
     })
     .done( (data) => {
-        $('#answer').html('はんていけっか = <span class="answer">'+data['ans']+'</span>')
-        $('ul#anslist').append('<li>0: '+data['c0']+'</li>');
-        $('ul#anslist').append('<li>1: '+data['c1']+'</li>');
-        $('ul#anslist').append('<li>2: '+data['c2']+'</li>');
-        $('ul#anslist').append('<li>3: '+data['c3']+'</li>');
-        $('ul#anslist').append('<li>4: '+data['c4']+'</li>');
-        $('ul#anslist').append('<li>5: '+data['c5']+'</li>');
-        $('ul#anslist').append('<li>6: '+data['c6']+'</li>');
-        $('ul#anslist').append('<li>7: '+data['c7']+'</li>');
-        $('ul#anslist').append('<li>8: '+data['c8']+'</li>');
-        $('ul#anslist').append('<li>9: '+data['c9']+'</li>');
+//        $('#answer').html('はんていけっか = <span class="answer">'+data['ans']+'</span>')
+        const idx = 3 * parseInt(data['ans'], 10);
+        const group = document.getElementById("radiogroup");
+        group.setAttribute("style", "pointer-events: ");
+        const target =  group.children[idx];
+        target.checked = true;
+//         $('ul#anslist').append('<li>0: '+data['c0']+'</li>');
+//         $('ul#anslist').append('<li>1: '+data['c1']+'</li>');
+//         $('ul#anslist').append('<li>2: '+data['c2']+'</li>');
+//         $('ul#anslist').append('<li>3: '+data['c3']+'</li>');
+//         $('ul#anslist').append('<li>4: '+data['c4']+'</li>');
+//         $('ul#anslist').append('<li>5: '+data['c5']+'</li>');
+//         $('ul#anslist').append('<li>6: '+data['c6']+'</li>');
+//         $('ul#anslist').append('<li>7: '+data['c7']+'</li>');
+//         $('ul#anslist').append('<li>8: '+data['c8']+'</li>');
+//         $('ul#anslist').append('<li>9: '+data['c9']+'</li>');
     });
 }
 
+function answerCheck() {
+    // 選択ボタンの取得
+    var targetIdx = -1;
+    const group = document.getElementById("radiogroup");
+    const targets =  group.children;
+    for(var i=0; i<9; i++){
+        const idx = 3 * i;
+        if (targets[idx].checked) {
+            targetIdx = i;
+            break;
+        }
+    }
 
+   $.ajax({
+        type: "POST",
+        url: "/api/anotation",
+        data: {
+            "keyword": keyword,
+            "newnum": targetIdx
+        }
+    })
+    .done( (data) => {
+        result = data['result']
+    });
+}

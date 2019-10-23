@@ -3,21 +3,51 @@
   <head>
     <title>mnist-app</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!--
     <script src="./static/js/app.js"></script>
     <link rel="stylesheet" href="/static/css/app.css">
+-->
+    <script src="../static/js/app.js"></script>
+    <link rel="stylesheet" href="../static/css/app.css">
+
   </head>
   <body onload="mam_draw_init();">
     <div align="center">
-      <h1>0～9のすうじをかいてね</h1>
-      <div class="canvas" id="candiv">
-          <canvas id="can" width="280px" height="280px"></canvas>
-      </div>
-      <form action="/" method="post">
-          <button type="button" onClick="clearCan();" value="clear" class="clear-button">けす</button>
-          <button type="button" id="img" name="img" onClick="sendImage();" value="done" class="send-button">はんてい</button>
-      </form>
-      <div id="answer"></div>
-      <ul class="cp_list" id="anslist"></ul>
+      <table><tr>
+        <th align="center">
+          <h1>0～9のすうじをかいてね</h1>
+          <div class="canvas" id="candiv">
+            <canvas id="can" width="280px" height="280px"></canvas>
+          </div>
+          <form action="/" method="post">
+            <button type="button" onClick="clearCan();" value="clear" class="clear-button">やりなおす</button>
+            <button type="button" id="img" name="img" onClick="sendImage();" value="done" class="send-button">はんてい</button>
+          </form>
+<!--
+          <div id="answer"></div>
+          <ul class="cp_list" id="anslist"></ul>
+-->
+        </th>
+        <th width=200>
+<!-- <form action="/" method="post"> -->
+          <br><br><br>
+          <label>はんていけっか</label>
+          <!-- visibility:visible,  visibility:hidden -->
+          <group class="custom-radio" id="radiogroup" style="visibility:hidden">
+            <input type="radio" name="gtlabel" id="rb0" onclick="answerCheck()" value="0"><label for="rb0">0</label><br>
+            <input type="radio" name="gtlabel" id="rb1" onclick="answerCheck()" value="1"><label for="rb1">1</label><br>
+            <input type="radio" name="gtlabel" id="rb2" onclick="answerCheck()" value="2"><label for="rb2">2</label><br>
+            <input type="radio" name="gtlabel" id="rb3" onclick="answerCheck()" value="3"><label for="rb3">3</label><br>
+            <input type="radio" name="gtlabel" id="rb4" onclick="answerCheck()" value="4"><label for="rb4">4</label><br>
+            <input type="radio" name="gtlabel" id="rb5" onclick="answerCheck()" value="5"><label for="rb5">5</label><br>
+            <input type="radio" name="gtlabel" id="rb6" onclick="answerCheck()" value="6"><label for="rb6">6</label><br>
+            <input type="radio" name="gtlabel" id="rb7" onclick="answerCheck()" value="7"><label for="rb7">7</label><br>
+            <input type="radio" name="gtlabel" id="rb8" onclick="answerCheck()" value="8"><label for="rb8">8</label><br>
+            <input type="radio" name="gtlabel" id="rb9" onclick="answerCheck()" value="9"><label for="rb9">9</label>
+          </group>
+<!-- </form> -->
+        </th>
+      </tr></table>
     </div>
   </body>
 </html>
