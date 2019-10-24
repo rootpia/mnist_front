@@ -67,7 +67,7 @@ function clearCan() {
     ct.fillStyle = "rgb(255,255,255)";
     ct.fillRect(0, 0, can.getBoundingClientRect().width, can.getBoundingClientRect().height);
     const group = document.getElementById("radiogroup");
-    for(var i=0; i<9; i++){
+    for(var i=0; i<=9; i++){
         const idx = 3 * i;
         group.children[idx].checked = false;
     }
@@ -100,7 +100,7 @@ function answerCheck() {
     var targetIdx = -1;
     const group = document.getElementById("radiogroup");
     const targets =  group.children;
-    for(var i=0; i<9; i++){
+    for(var i=0; i<=9; i++){
         const idx = 3 * i;
         if (targets[idx].checked) {
             targetIdx = i;
