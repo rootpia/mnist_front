@@ -66,10 +66,6 @@ function drawLine() {
 function clearCan() {
     ct.fillStyle = "rgb(255,255,255)";
     ct.fillRect(0, 0, can.getBoundingClientRect().width, can.getBoundingClientRect().height);
-//     $('#answer').html("")
-//     $('ul#anslist > li').each(function(){
-//         $(this).remove();
-//     });
     const group = document.getElementById("radiogroup");
     for(var i=0; i<9; i++){
         const idx = 3 * i;

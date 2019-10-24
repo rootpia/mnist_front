@@ -9,7 +9,7 @@
     height: 40px;
     background-color: rgb(253, 16, 16);
     color: white;
-    margin: 5px 0;
+    margin: 10px 0;
     border-radius: 20px;
     border: none;
     outline: none;
@@ -53,6 +53,7 @@
 .custom-radio label {
   color: #ddd;
   border: 2px solid #ddd;
+  border-radius: 3px;
   text-align: center;
   display: inline-block;
   padding: 4px 0px;

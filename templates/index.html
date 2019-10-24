@@ -3,10 +3,6 @@
   <head>
     <title>mnist-app</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<!--
-    <script src="./static/js/app.js"></script>
-    <link rel="stylesheet" href="/static/css/app.css">
--->
     <script src="../static/js/app.js"></script>
     <link rel="stylesheet" href="../static/css/app.css">
 
@@ -23,17 +19,11 @@
             <button type="button" onClick="clearCan();" value="clear" class="clear-button">やりなおす</button>
             <button type="button" id="img" name="img" onClick="sendImage();" value="done" class="send-button">はんてい</button>
           </form>
-<!--
-          <div id="answer"></div>
-          <ul class="cp_list" id="anslist"></ul>
--->
         </th>
-        <th width=200>
-<!-- <form action="/" method="post"> -->
-          <br><br><br>
+        <th width=220 >
+          <br>
           <label>はんていけっか</label>
-          <!-- visibility:visible,  visibility:hidden -->
-          <group class="custom-radio" id="radiogroup" style="visibility:hidden">
+          <group class="custom-radio" id="radiogroup">
             <input type="radio" name="gtlabel" id="rb0" onclick="answerCheck()" value="0"><label for="rb0">0</label><br>
             <input type="radio" name="gtlabel" id="rb1" onclick="answerCheck()" value="1"><label for="rb1">1</label><br>
             <input type="radio" name="gtlabel" id="rb2" onclick="answerCheck()" value="2"><label for="rb2">2</label><br>
@@ -45,7 +35,6 @@
             <input type="radio" name="gtlabel" id="rb8" onclick="answerCheck()" value="8"><label for="rb8">8</label><br>
             <input type="radio" name="gtlabel" id="rb9" onclick="answerCheck()" value="9"><label for="rb9">9</label>
           </group>
-<!-- </form> -->
         </th>
       </tr></table>
     </div>
