@@ -2,7 +2,7 @@
 var ct;
 var ox = 0, oy = 0, x = 0, y = 0;
 var mf = false;
-var keyword = ""
+var keyname = "";
 
 function mam_draw_init() {
     can = document.getElementById("can");
@@ -80,11 +80,6 @@ function clearCan() {
 
 // 画像のサーバーへのPOST
 function sendImage() {
-//     $('#answer').html("")
-//     $('ul#anslist > li').each(function(){
-//         $(this).remove();
-//     });
-
     var img = document.getElementById("can").toDataURL('image/png');
     img = img.replace('image/png', 'image/octet-stream');
     $.ajax({
@@ -95,22 +90,12 @@ function sendImage() {
         }
     })
     .done( (data) => {
-//        $('#answer').html('はんていけっか = <span class="answer">'+data['ans']+'</span>')
         const idx = 3 * parseInt(data['ans'], 10);
         const group = document.getElementById("radiogroup");
         group.setAttribute("style", "pointer-events: ");
         const target =  group.children[idx];
         target.checked = true;
-//         $('ul#anslist').append('<li>0: '+data['c0']+'</li>');
-//         $('ul#anslist').append('<li>1: '+data['c1']+'</li>');
-//         $('ul#anslist').append('<li>2: '+data['c2']+'</li>');
-//         $('ul#anslist').append('<li>3: '+data['c3']+'</li>');
-//         $('ul#anslist').append('<li>4: '+data['c4']+'</li>');
-//         $('ul#anslist').append('<li>5: '+data['c5']+'</li>');
-//         $('ul#anslist').append('<li>6: '+data['c6']+'</li>');
-//         $('ul#anslist').append('<li>7: '+data['c7']+'</li>');
-//         $('ul#anslist').append('<li>8: '+data['c8']+'</li>');
-//         $('ul#anslist').append('<li>9: '+data['c9']+'</li>');
+        keyname = data['keyname']
     });
 }
 
@@ -129,9 +114,9 @@ function answerCheck() {
 
    $.ajax({
         type: "POST",
-        url: "/api/anotation",
+        url: "/api/annotation",
         data: {
-            "keyword": keyword,
+            "keyname": keyname,
             "newnum": targetIdx
         }
     })
